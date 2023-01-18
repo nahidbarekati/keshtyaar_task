@@ -4,8 +4,11 @@ import { AppService } from './app.service';
 import database from './config/database.config';
 import app from './config/app.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GroupModule } from './modules/group/group.module';
+import { GroupService } from './modules/group/group.service';
+import { GroupController } from './modules/group/group.controller';
 @Module({
   imports: 
   [
@@ -20,9 +23,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       load: [app, database],
     }),
     UserModule,
+    GroupModule,
 
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, GroupController],
+  providers: [AppService, GroupService],
 })
 export class AppModule {}
