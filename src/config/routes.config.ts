@@ -8,7 +8,7 @@ export const routesV1 = {
   },
   api_group: {
     swagger_tag: 'Api Group',
-    root: '/api',
+    root: '/api/group',
   },
   api_post: {
     swagger_tag: 'Api POst',

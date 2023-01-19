@@ -6,6 +6,7 @@ import app from './config/app.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserModule } from './modules/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GroupModule } from './modules/group/group.module';
 @Module({
   imports: 
   [
@@ -20,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       load: [app, database],
     }),
     UserModule,
+    GroupModule
 
   ],
   controllers: [AppController],
