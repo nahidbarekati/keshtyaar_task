@@ -1,4 +1,5 @@
 import { registerAs } from '@nestjs/config';
+import { resolve } from 'path';
 
 export default registerAs('database', () => ({
   type: 'postgres',
@@ -7,7 +8,8 @@ export default registerAs('database', () => ({
   username: process.env.DB_USERNAM || 'admin',
   password: process.env.DB_PASSWORD || 'admin',
   database: process.env.DB_DATABASE || 'keshtyaar_task',
-  ssl: process.env.DB_SSL || false,
+  entities: [resolve(__dirname, './../**/*-entity{.ts,.js}')],
+
   // Only enable this option if your application is in development,
   // otherwise use TypeORM migrations to sync entity schemas:
   // https://typeorm.io/#/migrations
