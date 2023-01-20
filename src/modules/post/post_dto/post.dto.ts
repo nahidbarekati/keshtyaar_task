@@ -1,16 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-
-import {
-  IsOptional,
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-  IsNumber
-} from 'class-validator';
+import { IsString, MaxLength, MinLength, IsNumber } from 'class-validator';
 
 export class PostDto {
-
   @ApiProperty({
     example: 'programer',
     description: 'title of a post',
@@ -27,14 +18,12 @@ export class PostDto {
   @MaxLength(255)
   @MinLength(2)
   @IsString()
-  desc: string; 
-
+  desc: string;
 
   @ApiProperty({
     example: 1,
     description: 'id group_id',
   })
-
   @IsNumber()
   group_id: number;
 
@@ -42,8 +31,6 @@ export class PostDto {
   //   example: 1,
   //   description: 'id user_id',
   // })
-
   // @IsNumber()
   // user_id: number;
-
 }

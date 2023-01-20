@@ -1,11 +1,16 @@
 import { GroupEntity } from 'src/modules/group/entities/group.entity';
-import { UserEntity } from 'src/modules/user/entities/user.entity';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-
+// import { UserEntity } from 'src/modules/user/entities/user.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity('Posts')
 export class PostEntity extends BaseEntity {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -15,10 +20,10 @@ export class PostEntity extends BaseEntity {
   @Column()
   desc: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   group_id: number;
 
-  // @Column({nullable: true}) 
+  // @Column({nullable: true})
   // @Column()
   // user_id: number;
 
@@ -29,5 +34,4 @@ export class PostEntity extends BaseEntity {
   // @ManyToOne(() => UserEntity)
   // @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   // user?: GroupEntity;
-
 }

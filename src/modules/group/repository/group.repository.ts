@@ -19,10 +19,7 @@ export class GroupRepository extends Repository<GroupEntity> {
   }
 
   public async createGroup(group): Promise<void> {
-    const group_name = group.group_name;
-    const user_id = group.id
-
     const groupSave = await this.groupRepository.save(group);
-
+    return groupSave;
   }
 }

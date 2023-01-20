@@ -1,16 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { typeOrmAsyncConfig } from './config/typeorm.config';
 import app from './config/app.config';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './modules/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroupModule } from './modules/group/group.module';
 import { PostModule } from './modules/post/post.module';
 @Module({
-  imports: 
-  [
+  imports: [
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     ConfigModule.forRoot({
       isGlobal: true,
@@ -18,10 +15,9 @@ import { PostModule } from './modules/post/post.module';
     }),
     UserModule,
     GroupModule,
-    PostModule
-
+    PostModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

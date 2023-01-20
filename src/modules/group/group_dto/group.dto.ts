@@ -1,16 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import {
-  IsOptional,
-  IsString,
-  Matches,
-  MaxLength,
-  MinLength,
-  IsNumber
-} from 'class-validator';
+import { IsString, MaxLength, MinLength, IsNumber } from 'class-validator';
 
 export class GroupDto {
-
   @ApiProperty({
     example: 'programer',
     description: 'group_name of a group',
@@ -24,9 +16,6 @@ export class GroupDto {
     example: 1,
     description: 'id user_id',
   })
-
   @IsNumber()
   user_id: number;
-
-
 }

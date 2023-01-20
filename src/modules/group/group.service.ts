@@ -4,21 +4,17 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class GroupService {
-    constructor(
-        @InjectRepository(GroupRepository)
-        private groupRepository: GroupRepository,
-      ) {}
+  constructor(
+    @InjectRepository(GroupRepository)
+    private groupRepository: GroupRepository,
+  ) {}
 
-      async getAllGroup() {
-        return true
-      };
-    
+  async getAllGroup() {
+    return true;
+  }
 
-    async create(group) {
-        const userInfo = await this.groupRepository.createGroup(
-            group,
-          );
-        return userInfo
-    }
-
+  async create(group) {
+    const userInfo = await this.groupRepository.createGroup(group);
+    return userInfo;
+  }
 }

@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PostEntity } from '../entities/post.entity';
-import { GroupService } from 'src/modules/group/group.service';
+// import { GroupService } from 'src/modules/group/group.service';
 
 @Injectable()
 export class PostRepository extends Repository<PostEntity> {
@@ -20,25 +20,7 @@ export class PostRepository extends Repository<PostEntity> {
   }
 
   public async createPost(post): Promise<void> {
-    const title = post.title;
-    const desc = post.desc;
-    const group_id = post.group_id
-
     const postSave = await this.postRepository.save(post);
-
-    
-
-  }
-
-  public async updatePost(post: any) {
-    let update = await this.postRepository.query(`
-    UPDATE "Posts"
-    SET 
-      "user_id" = "Groups"."user_id"
-      FROM "Groups"
-        
-      WHERE
-        "Posts"."group_id" = "Groups"."id"
-    `)
+    return postSave;
   }
 }

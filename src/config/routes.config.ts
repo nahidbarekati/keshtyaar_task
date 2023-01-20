@@ -4,7 +4,7 @@ export const routesV1 = {
   api_user: {
     swagger_tag: 'Api User',
     root: '/api',
-    list: '/api/list'
+    list: '/api/list-without-Group',
   },
   api_group: {
     swagger_tag: 'Api Group',

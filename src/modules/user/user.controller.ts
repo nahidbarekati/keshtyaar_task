@@ -4,16 +4,15 @@ import { routesV1 } from 'src/config/routes.config';
 import { UserService } from './user.service';
 import { UserDto } from './user_dto';
 
-
 @ApiTags(routesV1.api_user.swagger_tag)
 @Controller(routesV1.public_version)
 export class UserController {
-    constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @ApiOperation({ summary: 'user api response' })
   @ApiResponse({
     status: HttpStatus.CREATED,
-    type: 'jhhk',
+    type: UserDto,
   })
   @Post(routesV1.api_user.root)
   ceateUser(@Body() body: UserDto) {
@@ -23,8 +22,8 @@ export class UserController {
 
   @ApiOperation({ summary: '' })
   @Get(routesV1.api_user.root)
-  getUser() {
-    const result = this.userService.getUsers();
+  findAllWithOutGroup() {
+    const result = this.userService.findAllWithOutGroup();
     return result;
   }
 
@@ -34,5 +33,4 @@ export class UserController {
     const result = this.userService.getAlluser();
     return result;
   }
-
 }
