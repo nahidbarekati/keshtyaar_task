@@ -6,7 +6,6 @@ import swaggerInit from './swagger';
 async function bootstrap() {
   const app: NestApplication = await NestFactory.create(AppModule);
   app.use(helmet());
-
   // -- Cors setup
   app.enableCors();
 

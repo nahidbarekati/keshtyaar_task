@@ -47,3 +47,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   synchronize: false,
   logging: true,
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89ef217f281f3e939d74799bb0dd3e11aa55c13c
