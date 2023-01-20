@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { GroupEntity } from '../entities/group-entity';
+import { GroupEntity } from '../entities/group.entity';
 
 @Injectable()
 export class GroupRepository extends Repository<GroupEntity> {
@@ -22,10 +22,7 @@ export class GroupRepository extends Repository<GroupEntity> {
     const group_name = group.group_name;
     const user_id = group.id
 
-    const groupSave = await this.groupRepository.save({
-      group_name,
-      user_id
-    });
+    const groupSave = await this.groupRepository.save(group);
 
   }
 }

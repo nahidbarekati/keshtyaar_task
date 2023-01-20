@@ -21,12 +21,12 @@ export class GroupDto {
   group_name: string;
 
   @ApiProperty({
-    example: 'id',
+    example: 1,
     description: 'id user_id',
   })
 
   @IsNumber()
-  id: number;
+  user_id: number;
 
 
 }
