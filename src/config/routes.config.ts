@@ -12,7 +12,7 @@ export const routesV1 = {
   },
   api_post: {
     swagger_tag: 'Api POst',
-    root: '/api',
+    root: '/api/post',
   },
   health: {
     swagger_tag: 'Health',

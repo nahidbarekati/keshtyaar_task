@@ -1,7 +1,8 @@
 import { Repository } from 'typeorm';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from '../entities/user-entity';
+import { UserEntity } from '../entities/user.entity';
+
 
 
 @Injectable()
@@ -23,11 +24,7 @@ export class UserRepository extends Repository<UserEntity> {
     const name = user.name;
     const email = user.email;
     const phone = user.phone;
-    const userSave = await this.userRepository.save({
-      name,
-      email,
-      phone,
-    });
+    const userSave = await this.userRepository.save(user);
 
   }
 }
